@@ -9,17 +9,17 @@ script:
   - docker run meiyenl/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t meiyenl/multi-client ./client
-  - docker build -t meiyenl/multi-nginx ./nginx
-  - docker build -t meiyenl/multi-server ./server
-  - docker build -t meiyenl/multi-worker ./worker
+  - docker build -t multi-client ./client
+  - docker build -t multi-nginx ./nginx
+  - docker build -t multi-server ./server
+  - docker build -t multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push meiyen88/multi-client
-  - docker push meiyen88/multi-nginx
-  - docker push meiyen88/multi-server
-  - docker push meiyen88/multi-worker
+  - docker push meiyen88/meiyenl:multi-client
+  - docker push meiyen88/meiyenl:multimei-nginx
+  - docker push meiyen88/meiyenl:multi-server
+  - docker push meiyen88/meiyenl:multi-worker
 
 deploy:
   provider: elasticbeanstalk
