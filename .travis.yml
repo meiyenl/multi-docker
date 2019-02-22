@@ -16,10 +16,10 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push meiyen88/meiyenl/multi-client
-  - docker push meiyen88/meiyenl/multi-nginx
-  - docker push meiyen88/meiyenl/multi-server
-  - docker push meiyen88/meiyenl/multi-worker
+  - docker push meiyenl/meiyenl/multi-client
+  - docker push meiyenl/meiyenl/multi-nginx
+  - docker push meiyenl/meiyenl/multi-server
+  - docker push meiyenl/meiyenl/multi-worker
 
 deploy:
   provider: elasticbeanstalk
